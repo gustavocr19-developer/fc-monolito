@@ -7,7 +7,7 @@ import { GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto } from 
 
 export default class GenerateInvoiceUseCase{
     private _invoiceRepository: InvoiceGateway
-    constructor(private readonly invoiceRepository: InvoiceGateway){
+    constructor(invoiceRepository: InvoiceGateway){
         this._invoiceRepository = invoiceRepository
     }
 
