@@ -49,7 +49,7 @@ describe("InvoiceRepository test", () => {
     );
     const address = new Address({
       street: "street",
-      houseNumber: "777",
+      number: "777",
       city: "city",
       state: "state",
       zipCode: "111-11",
@@ -71,7 +71,7 @@ describe("InvoiceRepository test", () => {
     expect(invoice.name).toEqual("Invoice 1");
     expect(invoice.document).toEqual("00000");
     expect(invoice.address.street).toEqual("street");
-    expect(invoice.address.houseNumber).toEqual("777");
+    expect(invoice.address.number).toEqual("777");
     expect(invoice.items[0].id.id).toEqual("1");
     expect(invoice.items[0].name).toEqual("Product 1");
     expect(invoice.items[0].price).toEqual(100);
@@ -105,7 +105,7 @@ describe("InvoiceRepository test", () => {
     expect(invoice.name).toEqual("Invoice 1");
     expect(invoice.document).toEqual("000000");
     expect(invoice.address.street).toEqual("street");
-    expect(invoice.address.houseNumber).toEqual("777");
+    expect(invoice.address.number).toEqual("777");
     expect(invoice.items[0].id.id).toEqual("1");
     expect(invoice.items[0].name).toEqual("Product 1");
     expect(invoice.items[0].price).toEqual(100);

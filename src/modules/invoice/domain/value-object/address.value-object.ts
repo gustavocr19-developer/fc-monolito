@@ -2,7 +2,7 @@ import ValueObject from "../../../@shared/domain/value-object/value-object.inter
 
 type AddressProps = {
     street: string
-    houseNumber: string
+    number: string
     complement: string
     city: string
     state: string
@@ -12,7 +12,7 @@ type AddressProps = {
 
 export default class Address implements ValueObject{
     private _street: string
-    private _houseNumber: string
+    private _number: string
     private _complement: string
     private _city: string
     private _state: string
@@ -20,7 +20,7 @@ export default class Address implements ValueObject{
 
     constructor(props: AddressProps){
         this._street = props.street
-        this._houseNumber = props.houseNumber
+        this._number = props.number
         this._complement = props.complement
         this._city = props.city
         this._state = props.state
@@ -31,16 +31,16 @@ export default class Address implements ValueObject{
         return this._street; 
     }
 
-    get houseNumber(): string{
-        return this._houseNumber
+    get number(): string{
+        return this._number
     }
 
     get complement(): string{
-        return this._city
+        return this._complement
     }
 
     get city(): string{
-        return this._complement
+        return this._city
     }
 
     get state(): string{

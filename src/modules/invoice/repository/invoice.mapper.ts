@@ -11,7 +11,7 @@ export default class InvoiceMapper {
       name: invoice.name,
       document: invoice.document,
       addressStreet: invoice.address.street,
-      addressNumber: invoice.address.houseNumber,
+      addressNumber: invoice.address.number,
       addressComplement: invoice.address.complement,
       addressCity: invoice.address.city,
       addressState: invoice.address.state,
@@ -37,7 +37,7 @@ export default class InvoiceMapper {
     );
     const address = new Address({
       street: invoice.addressStreet,
-      houseNumber: invoice.addressNumber,
+      number: invoice.addressNumber,
       complement: invoice.addressComplement,
       city: invoice.addressCity,
       state: invoice.addressState,
