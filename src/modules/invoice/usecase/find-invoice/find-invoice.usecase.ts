@@ -10,11 +10,10 @@ export class FindInvoiceUseCase{
 
     async execute(input: FindInvoiceUseCaseInputDTO):Promise<FindInvoiceUseCaseOutputDTO>{
         
-        const invoice = await this._invoiceRepository.findInvoice(input.id);
+        const invoice = await this._invoiceRepository.find(input.id);
         const itemsOutput = invoice.items.map(item => ({ 
             id: item.id.id, 
-            name: item.name, 
-            document: item.name, 
+            name: item.name,
             price: item.price
         }))
         

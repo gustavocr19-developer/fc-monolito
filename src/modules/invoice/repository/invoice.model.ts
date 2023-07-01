@@ -1,5 +1,18 @@
-import { Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
-import { ProductModel } from "./product.model"
+import {
+  Column,
+  DataType,
+  Model,
+  PrimaryKey,
+  Table,
+} from "sequelize-typescript";
+
+interface ProductData {
+  id: string;
+  name: string;
+  price: number;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
 
 @Table({
   tableName: "invoices",
@@ -17,31 +30,29 @@ export class InvoiceModel extends Model {
   document: string;
 
   @Column({ allowNull: false })
-  street: string;
-
-  @Column({ allowNull: false })
-  number: string;
-
-  @Column({ allowNull: false })
-  complement: string;
-
-  @Column({ allowNull: false })
-  city: string;
-
-  @Column({ allowNull: false })
-  state: string;
-
-  @Column({ allowNull: false })
-  zipCode: string;
-
-  @Column({ allowNull: false })
   createdAt: Date;
 
   @Column({ allowNull: false })
   updatedAt: Date;
 
-  @HasMany(() => ProductModel, {
-    onDelete: "CASCADE",
-  })
-  items!: ProductModel[];
+  @Column({ allowNull: false, type: DataType.JSON })
+  items: ProductData[];
+
+  @Column({ allowNull: false })
+  addressStreet: string;
+
+  @Column({ allowNull: false })
+  addressNumber: string;
+
+  @Column({ allowNull: false })
+  addressComplement: string;
+
+  @Column({ allowNull: false })
+  addressCity: string;
+
+  @Column({ allowNull: false })
+  addressState: string;
+
+  @Column({ allowNull: false })
+  addressZipCode: string;
 }

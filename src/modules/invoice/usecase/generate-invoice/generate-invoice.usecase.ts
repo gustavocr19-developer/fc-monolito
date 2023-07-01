@@ -35,7 +35,7 @@ export default class GenerateInvoiceUseCase{
         }
         
         const invoice = new Invoice(props)
-        this._invoiceRepository.generateInvoice(invoice)
+        this._invoiceRepository.add(invoice)
 
         const itemsOutput = invoice.items.map(item => ({ 
             id: item.id.id, 
