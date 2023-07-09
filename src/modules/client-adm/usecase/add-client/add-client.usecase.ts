@@ -13,7 +13,13 @@ export default class AddClientUseCase {
     this._clientRepository = clientRepository;
   }
 
+  validateFields(input: AddClientInputDto){
+    if(!input.name) throw new Error('Name must be provided')
+    if(!input.email) throw new Error('Email must be provided')
+  }
+
   async execute(input: AddClientInputDto): Promise<AddClientOutputDto> {
+    this.validateFields(input)
     const props = {
       id: new Id(input.id) || new Id(),
       name: input.name,
