@@ -2,7 +2,6 @@ import { app, sequelize } from "../index";
 import request from "supertest";
 import { ClientModel } from "../../modules/client-adm/repository/client.model";
 import { ProductModel } from "../../modules/product-adm/repository/product.model";
-import ProductModelStoreCatalog from "../../modules/store-catalog/repository/product.model";
 
 describe("E2E test for checkout", () => {
   beforeEach(async () => {
@@ -22,8 +21,6 @@ describe("E2E test for checkout", () => {
       createdAt: new Date(),
       updatedAt: new Date(),
     });
-
-
     await ProductModel.create({
       id: "1",
       name: "My Product",
